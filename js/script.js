@@ -71,19 +71,19 @@ const displayPosts = (posts) =>{
     posts.forEach((post) =>{
         //console.log(post);
         const card = document.createElement('div');
-        card.className = `w-full bg-[#797DFC1A] flex gap-3 border p-10 rounded-2xl`;
+        card.className = `w-full bg-[#797DFC1A] lg:flex gap-3 border p-10 rounded-2xl`;
         card.innerHTML = `
         
         <!-- Image -->
-        <div class ="w-2/12 relative">
+        <div class ="w-6/12 lg:w-2/12 relative">
             <img class="w-full rounded-xl" src="${post.image}" alt="">
-            <img class="absolute bottom-40 left-24" src="./images/red.png" alt="">
-            <img id="status-icon${post.id}" class="absolute bottom-40 left-24" src="./images/green.png" alt="">
+            <img class="absolute bottom-24 lg:bottom-40 left-24" src="./images/red.png" alt="">
+            <img id="status-icon${post.id}" class="absolute bottom-24 lg:bottom-40 left-24" src="./images/green.png" alt="">
         </div>
         <!-- Right -->
         <div class="space-y-5 w-full flex-auto">
             <!-- right Top -->
-            <div class="flex gap-5">
+            <div class="flex flex-col-reverse lg:flex-row gap-5">
                 <hi># ${post.category}</hi>
                 <hi>Author : ${post.author.name}</hi>
             </div>
@@ -96,7 +96,7 @@ const displayPosts = (posts) =>{
             <hr>
 
             <!-- right Bottom -->
-            <div class="flex w-full">
+            <div class="lg:flex w-full space-y-3">
                 <!-- msg-view-Time -->
                 <div class="flex-1 flex justify-between">
                     <div class="flex gap-2 items-center">
@@ -113,7 +113,7 @@ const displayPosts = (posts) =>{
                     </div>
                 </div>
                 <!-- Letter box -->
-                <div class="flex-1 flex justify-end">
+                <div class="flex-1 flex justify-center lg:justify-end">
                     <button id="letter${post.id}"><img src="./images/letter.png" alt=""></button>
                 </div>
             </div>
