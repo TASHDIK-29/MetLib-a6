@@ -95,18 +95,21 @@ const displayLatestPosts = (posts) =>{
         newCard.className =`p-4 space-y-4 border border-[#12132D26] rounded-2xl`;
 
         newCard.innerHTML =`
-        <img src="./images/empty.png" alt="">
+        <!-- cover -->
+        <img class="rounded-xl" src="${post.cover_image}" alt="">
         <div class="flex gap-2 items-center">
+        <!-- Frame -->
             <img src="./images/Frame.png" alt="">
-            <h1 class="font-medium">29 January 2024</h1>
+            <h1 class="font-medium">${post.author?.posted_date || 'No Publish Date'}</h1>
         </div>
-        <h1 class="text-lg font-bold">What will a mars habitat force that impact in our daily life!!!</h1>
-        <p class="font-semibold">Yes, you can run unit tests and view the results directly within the app.</p>
+        <h1 class="text-lg font-bold">${post.title}</h1>
+        <p class="font-semibold">${post.description}</p>
         <div class="flex gap-2 items-center">
-            <img src="./images/Ellipse.png" alt="">
+        <!-- profile -->
+            <img class="w-2/12 rounded-full" src="${post.profile_image}" alt="">
             <div>
-                <h3 class="text-lg font-bold">Cameron Williamson</h3>
-                <p class="font-semibold">Unknown</p>
+                <h3 class="text-lg font-bold">${post.author.name}</h3>
+                <p class="font-semibold">${post.author?.designation || 'Unknown'}</p>
             </div>
         </div>
         `
