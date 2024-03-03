@@ -86,7 +86,7 @@ const displayPosts = (posts) =>{
                 </div>
                 <!-- Letter box -->
                 <div class="flex-1 flex justify-end">
-                    <button><img src="./images/letter.png" alt=""></button>
+                    <button id="letter${post.id}"><img src="./images/letter.png" alt=""></button>
                 </div>
             </div>
         </div>
@@ -98,7 +98,34 @@ const displayPosts = (posts) =>{
             //console.log(document.getElementById('status-icon'));
             document.getElementById(`status-icon${post.id}`).classList.add('hidden');
         }
+
+        // Letter Handel
+        document.getElementById(`letter${post.id}`).addEventListener("click", function(){
+            appendDiv(post.title, post.view_count);
+        });
     })
+}
+
+
+// Append Div
+
+const appendDiv = (title, count) =>{
+    const clickedItemsContainer = document.getElementById("clicked-item");
+    // console.log(title, count);
+    const newDiv = document.createElement('div');
+    newDiv.classList =`flex justify-between bg-white rounded-lg`;
+
+    newDiv.innerHTML =`
+    <div class="w-1/2 p-3">
+        <h1 class="text-gray-600 text-lg font-bold">${title}</h1>
+    </div>
+    <div class="flex gap-2 items-center w-1/2 justify-center">
+        <img src="./images/view.png" alt="">
+        <p class="text-gray-600">${count}</p>
+    </div>
+
+    `
+    clickedItemsContainer.appendChild(newDiv);
 }
 
 
@@ -121,7 +148,7 @@ const displayLatestPosts = (posts) =>{
         <div class="flex gap-2 items-center">
         <!-- Frame -->
             <img src="./images/Frame.png" alt="">
-            <h1 class="font-medium">${post.author?.posted_date || 'No Publish Date'}</h1>
+            <h1 class="font-medium">${post.author?.posted_date || 'No publish date'}</h1>
         </div>
         <h1 class="text-lg font-bold">${post.title}</h1>
         <p class="font-semibold">${post.description}</p>
