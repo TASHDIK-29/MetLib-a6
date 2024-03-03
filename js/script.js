@@ -34,18 +34,26 @@ const fetchingLatestPosts = async () =>{
 // }
 
 const fetchingSearchPosts = async () =>{
+    // Loader Activate
+    
+
     const value = document.getElementById('input-field').value.toLowerCase();
     if(value === 'music' || value === 'comedy' || value === 'coding')
     {
+        document.getElementById('loader').classList.remove('hidden');
+
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = '';
+
     setTimeout(async() =>{
         const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`);
     const {posts}  = await res.json();
     console.log(posts);
-    const cardContainer = document.getElementById('card-container');
-    cardContainer.innerHTML = '';
+    // const cardContainer = document.getElementById('card-container');
+    // cardContainer.innerHTML = '';
     displayPosts(posts)
     }, 2000);
-    
+
     }
      else{
          alert('NO MATCHED CATEGORY !')
@@ -124,6 +132,9 @@ const displayPosts = (posts) =>{
             appendDiv(post.title, post.view_count);
         });
     })
+
+    // Loader Activate
+    document.getElementById('loader').classList.add('hidden');
 }
 
 
