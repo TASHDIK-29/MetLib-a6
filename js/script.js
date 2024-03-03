@@ -77,8 +77,8 @@ const displayPosts = (posts) =>{
         <!-- Image -->
         <div class ="w-6/12 lg:w-2/12 relative">
             <img class="w-full rounded-xl" src="${post.image}" alt="">
-            <img class="absolute bottom-24 lg:bottom-40 left-24" src="./images/red.png" alt="">
-            <img id="status-icon${post.id}" class="absolute bottom-24 lg:bottom-40 left-24" src="./images/green.png" alt="">
+            <img class="absolute top-0 -right-2" src="./images/red.png" alt="">
+            <img id="status-icon${post.id}" class="absolute top-0 -right-2" src="./images/green.png" alt="">
         </div>
         <!-- Right -->
         <div class="space-y-5 w-full flex-auto">
