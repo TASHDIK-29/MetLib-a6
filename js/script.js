@@ -14,6 +14,27 @@ const fetchingLatestPosts = async () =>{
     displayLatestPosts(posts);
 }
 
+
+
+//Posts by search
+const fetchingSearchPosts = async () =>{
+    const value = document.getElementById('input-field').value;
+    //if(value === 'music' || value === 'comedy' || value === 'coding')
+   // {
+        const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`);
+    const {posts}  = await res.json();
+    //console.log(posts);
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = '';
+    displayPosts(posts)
+   // }
+    // else{
+    //     alert('NO MATCHED CATEGORY !')
+    // }
+}
+
+
+
 const displayPosts = (posts) =>{
     //console.log(posts);
 
