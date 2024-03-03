@@ -16,22 +16,6 @@ const fetchingLatestPosts = async () =>{
 
 
 
-//Posts by search
-// const fetchingSearchPosts = async () =>{
-//     const value = document.getElementById('input-field').value.toLowerCase();
-//     if(value === 'music' || value === 'comedy' || value === 'coding')
-//     {
-//     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`);
-//     const {posts}  = await res.json();
-//     //console.log(posts);
-//     const cardContainer = document.getElementById('card-container');
-//     cardContainer.innerHTML = '';
-//     displayPosts(posts)
-//     }
-//      else{
-//          alert('NO MATCHED CATEGORY !')
-//      }
-// }
 
 const fetchingSearchPosts = async () =>{
     // Loader Activate
@@ -48,9 +32,8 @@ const fetchingSearchPosts = async () =>{
     setTimeout(async() =>{
         const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`);
     const {posts}  = await res.json();
-    console.log(posts);
-    // const cardContainer = document.getElementById('card-container');
-    // cardContainer.innerHTML = '';
+    //console.log(posts);
+    
     displayPosts(posts)
     }, 2000);
 
@@ -170,11 +153,11 @@ const appendDiv = (title, count) =>{
 // display Latest post
 
 const displayLatestPosts = (posts) =>{
-    console.log(posts);
+   // console.log(posts);
     const latestContainer = document.getElementById('latest-container');
 
     posts.forEach((post) =>{
-        console.log(post);
+        //console.log(post);
 
         const newCard = document.createElement('div');
         newCard.className =`p-4 space-y-4 border border-[#12132D26] rounded-2xl`;
